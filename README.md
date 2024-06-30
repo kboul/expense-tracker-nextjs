@@ -2,13 +2,27 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-Create a .env and include your DATABASE_URL from neon
+1. Create a .env and include your DATABASE_URL from neon
 
 ```
 DATABASE_URL=...
 ```
 
-First, run the development server:
+2. Install and init prisma
+
+a. Install
+
+```
+npm i -D prisma
+```
+
+b. Init
+
+```
+npx prisma init
+```
+
+3. Run the development server:
 
 ```bash
 npm run dev
