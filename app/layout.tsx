@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+
 import { Roboto } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
+import { Header } from "@/components";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
@@ -15,8 +18,15 @@ type RootLayoutProps = Readonly<{
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body className={roboto.className}>{children}</body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={roboto.className}>
+          <Header />
+          <main className="mx-auto my-[30px] flex w-[350px] flex-col items-center justify-center">
+            {children}
+          </main>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

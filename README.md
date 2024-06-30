@@ -34,7 +34,14 @@ d. Create prisma migrations
 npx prisma migrate dev
 ```
 
-3. Run the development server:
+3. Inluce in .env your clerk credentials
+
+```
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=...
+CLERK_SECRET_KEY=...
+```
+
+4.  Run the development server:
 
 ```bash
 npm run dev

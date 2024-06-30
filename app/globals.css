@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -13,56 +17,70 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-.container {
+/* .container {
   margin: 30px auto;
   width: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
+} */
 
-.navbar {
+/* .navbar {
   background: #000;
   color: #fff;
-}
+} */
 
 .navbar a {
   color: #fff;
 }
 
 .navbar button,
-.guest button {
+/* .guest button {
   border: 0;
   border-radius: 5px;
   background: rebeccapurple;
   color: #fff;
   padding: 0.5rem 2rem;
   cursor: pointer;
-}
+} */
 
-.navbar button:hover {
+/* .navbar button:hover {
   opacity: 0.9;
-}
+} */
 
-.navbar-container {
+/* .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 900px;
   margin: 0 auto;
   padding: 0 2rem;
-}
+} */
 
 .navbar .cl-button {
   background: transparent;
   border: 0;
 }
 
-h1 {
+@layer base {
+  h1 {
+    @apply m-0;
+    @apply tracking-[1px];
+    @apply text-[2rem];
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply pb-[10px];
+  }
+}
+
+/* h1 {
   letter-spacing: 1px;
   margin: 0;
-}
+} */
 
 h3 {
   border-bottom: 1px solid #bbb;
