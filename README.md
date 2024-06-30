@@ -8,7 +8,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 DATABASE_URL=...
 ```
 
-2. Install and init prisma
+2. Install, init, generate & migrate prisma
 
 a. Install
 
@@ -20,6 +20,18 @@ b. Init
 
 ```
 npx prisma init
+```
+
+c. Once prisma schema is modified run
+
+```
+npx prisma generate
+```
+
+d. Create prisma migrations
+
+```
+npx prisma migrate dev
 ```
 
 3. Run the development server:
