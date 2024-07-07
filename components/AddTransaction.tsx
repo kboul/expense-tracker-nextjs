@@ -1,14 +1,13 @@
 "use client";
 
 import { addTransaction } from "@/app/actions";
+import { toast } from "react-toastify";
 
 export default function AddExpense() {
   const clientAction = async (formData: FormData) => {
     const { data, error } = await addTransaction(formData);
-    if (error) {
-      alert(error);
-      return;
-    }
+    if (error) return toast.error(error);
+
     alert(`Transaction added: ${data?.text} - ${data?.amount}euro`);
   };
 
