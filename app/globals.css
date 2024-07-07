@@ -35,7 +35,7 @@ body {
   color: #fff;
 }
 
-.navbar button,
+/* .navbar button, */
 /* .guest button {
   border: 0;
   border-radius: 5px;
@@ -77,6 +77,12 @@ body {
   }
 }
 
+@layer components {
+  .purple-btn {
+    @apply cursor-pointer rounded border-0 bg-[rebeccapurple] px-[2rem] py-[0.5rem] text-white hover:opacity-[0.9];
+  }
+}
+
 /* h1 {
   letter-spacing: 1px;
   margin: 0;
@@ -93,9 +99,9 @@ h4 {
   text-transform: uppercase;
 }
 
-.guest {
+/* .guest {
   text-align: center;
-}
+} */
 
 .error {
   background: red;
