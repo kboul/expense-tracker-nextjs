@@ -1,8 +1,15 @@
 "use client";
 
+import { addTransaction } from "@/app/actions";
+
 export default function AddExpense() {
   const clientAction = async (formData: FormData) => {
-    console.log(formData.get("text"), formData.get("amount"));
+    const { data, error } = await addTransaction(formData);
+    if (error) {
+      alert(error);
+      return;
+    }
+    alert(`Transaction added: ${data?.text} - ${data?.amount}euro`);
   };
 
   return (
