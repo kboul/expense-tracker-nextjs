@@ -75,6 +75,11 @@ body {
   h3 {
     @apply pb-[10px];
   }
+
+  h4 {
+    @apply uppercase;
+    @apply m-0;
+  }
 }
 
 @layer components {
@@ -94,10 +99,10 @@ h3 {
   margin: 40px 0 10px;
 }
 
-h4 {
+/* h4 {
   margin: 0;
   text-transform: uppercase;
-}
+} */
 
 /* .guest {
   text-align: center;
