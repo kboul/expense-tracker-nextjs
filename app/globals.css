@@ -86,6 +86,10 @@ body {
   .purple-btn {
     @apply cursor-pointer rounded border-0 bg-[rebeccapurple] px-[2rem] py-[0.5rem] text-white hover:opacity-[0.9];
   }
+
+  .money {
+    @apply m-0 text-[20px] tracking-[1px];
+  }
 }
 
 /* h1 {
@@ -114,37 +118,37 @@ h3 {
   padding: 3px;
 }
 
-.inc-exp-container {
+/* .inc-exp-container {
   background-color: #fff;
   box-shadow: var(--box-shadow);
   padding: 20px;
   display: flex;
   justify-content: space-between;
   margin: 20px 0;
-}
+} */
 
-.inc-exp-container > div {
+/* .inc-exp-container > div {
   flex: 1;
   text-align: center;
-}
+} */
 
-.inc-exp-container > div:first-of-type {
+/* .inc-exp-container > div:first-of-type {
   border-right: 1px solid #dedede;
-}
+} */
 
-.money {
+/* .money {
   font-size: 20px;
   letter-spacing: 1px;
   margin: 5px 0;
-}
+} */
 
-.money.plus {
+/* .money.plus {
   color: #2ecc71;
-}
+} */
 
-.money.minus {
+/* .money.minus {
   color: #c0392b;
-}
+} */
 
 label {
   display: inline-block;
