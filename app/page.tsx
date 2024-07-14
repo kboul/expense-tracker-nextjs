@@ -1,6 +1,12 @@
 import { currentUser } from "@clerk/nextjs/server";
 
-import { AddTransaction, Balance, Guest, IncomeExpense } from "@/components";
+import {
+  AddTransaction,
+  Balance,
+  Guest,
+  IncomeExpense,
+  TransactionList
+} from "@/components";
 
 export default async function HomePage() {
   const user = await currentUser();
@@ -13,6 +19,8 @@ export default async function HomePage() {
       <IncomeExpense />
 
       <AddTransaction />
+
+      <TransactionList />
     </main>
   );
 }
