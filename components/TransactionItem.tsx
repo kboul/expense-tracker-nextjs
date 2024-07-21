@@ -8,11 +8,12 @@ export default function TransactionItem({
 }: {
   transaction: Transaction;
 }) {
+  const sign = transaction.amount < 0 ? "-" : "+";
   return (
     <li
       className={`relative mx-0 my-[10px] flex justify-between border-r-[5px] border-solid bg-white p-[10px] text-black shadow-sm ${transaction.amount < 0 ? "border-minusColor" : "border-plusColor"}`}>
       {transaction.text}
-      <span>{addCommas(Math.abs(transaction.amount))}</span>
+      <span>{`${sign}${addCommas(Math.abs(transaction.amount))}`}</span>
     </li>
   );
 }
