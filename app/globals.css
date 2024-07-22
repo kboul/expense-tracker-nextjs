@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-} */
-
 * {
   box-sizing: border-box;
 }
@@ -17,218 +13,43 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-/* .container {
-  margin: 30px auto;
-  width: 350px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-} */
-
-/* .navbar {
-  background: #000;
-  color: #fff;
-} */
-
-.navbar a {
-  color: #fff;
-}
-
-/* .navbar button, */
-/* .guest button {
-  border: 0;
-  border-radius: 5px;
-  background: rebeccapurple;
-  color: #fff;
-  padding: 0.5rem 2rem;
-  cursor: pointer;
-} */
-
-/* .navbar button:hover {
-  opacity: 0.9;
-} */
-
-/* .navbar-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 2rem;
-} */
-
-.navbar .cl-button {
-  background: transparent;
-  border: 0;
-}
-
+/* extend html elements */
 @layer base {
   h1 {
-    @apply m-0;
-    @apply tracking-[1px];
-    @apply text-[2rem];
+    @apply m-0 text-[2rem] tracking-[1px];
   }
   h2 {
     @apply text-2xl;
   }
   h3 {
-    @apply mx-0 mb-[10px] mt-[40px] border-[0] border-b border-solid border-[#bbb] pb-[10px];
+    @apply mx-0 mb-3 mt-4 border-[0] border-b border-solid border-[#bbb] pb-[10px];
   }
 
   h4 {
-    @apply uppercase;
-    @apply m-0;
+    @apply m-0 uppercase;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    @apply block w-full rounded-md border border-solid border-[#dedede] p-[10px] text-[16px];
+  }
+
+  label {
+    @apply mx-0 mt-[10px] inline-block;
+  }
+
+  li {
+    @apply relative m-[10px] flex justify-between bg-white p-[10px] text-[#333];
   }
 }
 
+/* custom classes */
 @layer components {
   .purple-btn {
-    @apply cursor-pointer rounded border-0 bg-[rebeccapurple] px-[2rem] py-[0.5rem] text-white hover:opacity-[0.9];
+    @apply cursor-pointer rounded-md border-0 bg-[rebeccapurple] px-[2rem] py-[0.5rem] text-white hover:opacity-[0.9];
   }
 
   .money {
     @apply m-0 text-[20px] tracking-[1px];
   }
-
-  .li {
-    @apply relative m-[10px] flex justify-between bg-white p-[10px] text-[#333];
-  }
 }
-
-/* h1 {
-  letter-spacing: 1px;
-  margin: 0;
-} */
-
-/* h3 {
-  border-bottom: 1px solid #bbb;
-  padding-bottom: 10px;
-  margin: 40px 0 10px;
-} */
-
-/* h4 {
-  margin: 0;
-  text-transform: uppercase;
-} */
-
-/* .guest {
-  text-align: center;
-} */
-
-/* .error {
-  background: red;
-  color: #fff;
-  padding: 3px;
-} */
-
-/* .inc-exp-container {
-  background-color: #fff;
-  box-shadow: var(--box-shadow);
-  padding: 20px;
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
-} */
-
-/* .inc-exp-container > div {
-  flex: 1;
-  text-align: center;
-} */
-
-/* .inc-exp-container > div:first-of-type {
-  border-right: 1px solid #dedede;
-} */
-
-/* .money {
-  font-size: 20px;
-  letter-spacing: 1px;
-  margin: 5px 0;
-} */
-
-/* .money.plus {
-  color: #2ecc71;
-} */
-
-/* .money.minus {
-  color: #c0392b;
-} */
-
-label {
-  display: inline-block;
-  margin: 10px 0;
-}
-
-input[type="text"],
-input[type="number"] {
-  border: 1px solid #dedede;
-  border-radius: 2px;
-  display: block;
-  font-size: 16px;
-  padding: 10px;
-  width: 100%;
-}
-
-.btn {
-  cursor: pointer;
-  background-color: #9c88ff;
-  box-shadow: var(--box-shadow);
-  color: #fff;
-  border: 0;
-  display: block;
-  font-size: 16px;
-  margin: 10px 0 30px;
-  padding: 10px;
-  width: 100%;
-}
-
-/* .btn:focus,
-.delete-btn:focus {
-  outline: 0;
-} */
-
-/* .list {
-  list-style-type: none;
-  padding: 0;
-  margin-bottom: 40px;
-} */
-
-/* .list li {
-  background-color: #fff;
-  box-shadow: var(--box-shadow);
-  color: #333;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  padding: 10px;
-  margin: 10px 0;
-} */
-
-/* .list li.plus {
-  border-right: 5px solid #2ecc71;
-}
-
-.list li.minus {
-  border-right: 5px solid #c0392b;
-} */
-/* border-[0] border-t border-solid border-black*/
-
-/* .delete-btn {
-  cursor: pointer;
-  background-color: #e74c3c;
-  border: 0;
-  color: #fff;
-  font-size: 20px;
-  line-height: 20px;
-  padding: 2px 5px;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translate(-100%, -50%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-} */
-
-/* .list li:hover .delete-btn {
-  opacity: 1;
-} */
