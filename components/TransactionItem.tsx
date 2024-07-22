@@ -26,16 +26,23 @@ export default function TransactionItem({ transaction }: TransactionItemProps) {
     toast.success(message);
   };
 
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    // use event.preventDefault() to prevent a click event if a touch event is fired before
+    e.preventDefault();
+    handleDeleteTransaction(transaction.id);
+  };
+
   return (
     <li
-      className={`group relative mx-0 my-[10px] flex justify-between border-r-[5px] border-solid bg-white p-[10px] text-black shadow-sm ${transaction.amount < 0 ? "border-minusColor" : "border-plusColor"}`}>
+      className={`group relative mx-0 my-[10px] flex justify-between border-r-[5px] border-solid bg-white p-[10px] text-black shadow-sm ${transaction.amount < 0 ? "border-minusColor" : "border-plusColor"} cursor-pointer`}
+      // for desktop
+      onClick={(e) => handleDeleteTransaction(transaction.id)}
+      // for mobile
+      onTouchEnd={handleTouchEnd}>
       {transaction.text}
       <span>{`${sign}${addCommas(Math.abs(transaction.amount))}`}</span>
-      <button
-        className="absolute left-0 top-[50%] hidden translate-x-[-100%] translate-y-[-50%] transform rounded bg-red-500 px-1 py-0 text-sm leading-5 text-white transition-[0.3s] ease-in-out group-hover:block"
-        onClick={() => handleDeleteTransaction(transaction.id)}>
-        x
-      </button>
     </li>
   );
 }
+
+//  !(e.detail % 2) &&
