@@ -16,7 +16,8 @@ const config: Config = {
       colors: {
         minusColor: "#c0392b",
         plusColor: "#2ecc71"
-      }
+      },
+      display: ["group-hover"]
     }
   },
   plugins: []

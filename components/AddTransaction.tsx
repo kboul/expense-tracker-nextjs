@@ -11,7 +11,7 @@ export default function AddExpense() {
     const { data, error } = await addTransaction(formData);
     if (error) return toast.error(error);
 
-    toast.success(`Transaction added: ${data?.text} - ${data?.amount} euro`);
+    toast.success(`Transaction added: ${data?.text} ${data?.amount} euro`);
     formRef.current?.reset();
   };
 
