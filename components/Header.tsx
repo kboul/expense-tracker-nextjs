@@ -1,4 +1,3 @@
-import React from "react";
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 import { checkUser } from "@/lib/checkUser";
