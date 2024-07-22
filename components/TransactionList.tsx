@@ -8,6 +8,15 @@ export default async function TransactionList() {
 
   if (error)
     return <p className="mt-2 bg-red-500 p-[3px] text-white">{error}</p>;
+
+  if (transactions?.length === 0) {
+    return (
+      <p className="mt-4 bg-gray-200 p-2">
+        You don't have any transactions yet.
+      </p>
+    );
+  }
+
   return (
     <>
       <h3>History</h3>
