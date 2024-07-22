@@ -11,7 +11,7 @@ export default async function TransactionList() {
 
   if (transactions?.length === 0) {
     return (
-      <p className="mt-4 bg-gray-200 p-2">
+      <p className="mt-4 rounded-md bg-gray-200 p-2">
         You don't have any transactions yet.
       </p>
     );

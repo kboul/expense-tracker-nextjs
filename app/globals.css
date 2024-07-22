@@ -29,27 +29,27 @@ body {
     @apply m-0 uppercase;
   }
 
+  input[type="text"],
+  input[type="number"] {
+    @apply block w-full rounded-md border border-solid border-[#dedede] p-[10px] text-[16px];
+  }
+
   label {
     @apply mx-0 mt-[10px] inline-block;
   }
 
-  input[type="text"],
-  input[type="number"] {
-    @apply block w-full rounded-[2px] border border-solid border-[#dedede] p-[10px] text-[16px];
+  li {
+    @apply relative m-[10px] flex justify-between bg-white p-[10px] text-[#333];
   }
 }
 
 /* custom classes */
 @layer components {
   .purple-btn {
-    @apply cursor-pointer rounded border-0 bg-[rebeccapurple] px-[2rem] py-[0.5rem] text-white hover:opacity-[0.9];
+    @apply cursor-pointer rounded-md border-0 bg-[rebeccapurple] px-[2rem] py-[0.5rem] text-white hover:opacity-[0.9];
   }
 
   .money {
     @apply m-0 text-[20px] tracking-[1px];
-  }
-
-  .li {
-    @apply relative m-[10px] flex justify-between bg-white p-[10px] text-[#333];
   }
 }
