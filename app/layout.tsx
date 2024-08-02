@@ -6,7 +6,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { Header } from "@/components";
+import Header from "@/components/Header";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
