@@ -1,4 +1,5 @@
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { Button } from "./ui/button";
 
 export default async function Header() {
   return (
@@ -7,9 +8,9 @@ export default async function Header() {
         <h2>Expense Tracker</h2>
         <div>
           <SignedOut>
-            <div className="purple-btn">
+            <Button>
               <SignInButton />
-            </div>
+            </Button>
           </SignedOut>
           <SignedIn>
             <UserButton />

@@ -4,6 +4,8 @@ import { useRef } from "react";
 import { addTransaction } from "@/app/actions";
 import { toast } from "react-toastify";
 
+import { Button } from "./ui/button";
+
 export default function AddExpense() {
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -40,7 +42,7 @@ export default function AddExpense() {
             step="0.01"
           />
         </div>
-        <button className="purple-btn mt-4">Add expense</button>
+        <Button className="mt-4">Add expense</Button>
       </form>
     </>
   );

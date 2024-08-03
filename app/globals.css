@@ -103,10 +103,6 @@ body {
 
 /* custom classes - pre-shadcn */
 @layer components {
-  .purple-btn {
-    @apply cursor-pointer rounded-md border-0 bg-[rebeccapurple] px-[2rem] py-[0.5rem] text-white hover:opacity-[0.9];
-  }
-
   .money {
     @apply m-0 text-[20px] tracking-[1px];
   }
