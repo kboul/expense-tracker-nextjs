@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 import { Button } from "./ui/button";
 
-export default function AddExpense() {
+export default function AddTransaction() {
   const formRef = useRef<HTMLFormElement>(null);
 
   const clientAction = async (formData: FormData) => {
@@ -18,32 +18,24 @@ export default function AddExpense() {
   };
 
   return (
-    <>
-      <h3>Add transcaction</h3>
-      <form action={clientAction} ref={formRef}>
-        <div className="form-control">
-          <label htmlFor="text">Text</label>
-          <input
-            type="text"
-            id="text"
-            name="text"
-            placeholder="Enter text..."
-          />
-        </div>
-        <div className="form-control">
-          <label htmlFor="amount">
-            Amount (negative - expense, positive - income)
-          </label>
-          <input
-            type="number"
-            id="amount"
-            name="amount"
-            placeholder="Enter amount..."
-            step="0.01"
-          />
-        </div>
-        <Button className="mt-4">Add expense</Button>
-      </form>
-    </>
+    <form action={clientAction} ref={formRef} className="text-left">
+      <div className="form-control">
+        <label htmlFor="text">Text</label>
+        <input type="text" id="text" name="text" placeholder="Enter text..." />
+      </div>
+      <div className="form-control">
+        <label htmlFor="amount">
+          Amount (negative - expense, positive - income)
+        </label>
+        <input
+          type="number"
+          id="amount"
+          name="amount"
+          placeholder="Enter amount..."
+          step="0.01"
+        />
+      </div>
+      <Button className="mt-4 w-full">Add</Button>
+    </form>
   );
 }
