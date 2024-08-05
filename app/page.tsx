@@ -1,11 +1,10 @@
 import { Plus } from "lucide-react";
 
 import AppDrawer from "@/components/ui/AppDrawer";
-import { Button } from "@/components/ui/button";
 import Guest from "@/components/Guest";
 import Balance from "@/components/Balance";
 import IncomeExpense from "@/components/IncomeExpense";
-import TransactionList from "@/components/TransactionList";
+import Transactions from "@/components/Transactions";
 import AddTransaction from "@/components/AddTransaction";
 import { currentUser } from "@clerk/nextjs/server";
 
@@ -19,15 +18,15 @@ export default async function HomePage() {
       <Balance />
       <IncomeExpense />
 
-      <TransactionList />
+      <Transactions />
 
       <AppDrawer
         title="Add Transaction"
         Trigger={
-          <div className="absolute bottom-10 right-10">
-            <Button size="icon" className="rounded-full">
+          <div className="absolute bottom-5 right-5">
+            <div className="flex h-11 w-11 shrink-0 grow-0 items-center justify-center rounded-full bg-primary text-white">
               <Plus />
-            </Button>
+            </div>
           </div>
         }>
         <AddTransaction />

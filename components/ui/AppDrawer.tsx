@@ -28,10 +28,12 @@ export default function AppDrawer({
           <div className="flex justify-center space-x-2">{children}</div>
         </DrawerHeader>
         <DrawerFooter>
-          <DrawerClose>
-            <Button className="w-1/3" variant="outline">
-              Cancel
-            </Button>
+          <DrawerClose asChild>
+            <div className="flex justify-center">
+              <Button className="w-[330px]" variant="outline">
+                Cancel
+              </Button>
+            </div>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
