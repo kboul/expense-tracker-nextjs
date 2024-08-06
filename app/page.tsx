@@ -1,12 +1,12 @@
-import { currentUser } from "@clerk/nextjs/server";
+import { Plus } from "lucide-react";
 
-import {
-  AddTransaction,
-  Balance,
-  Guest,
-  IncomeExpense,
-  TransactionList
-} from "@/components";
+import AppDrawer from "@/components/ui/AppDrawer";
+import Guest from "@/components/Guest";
+import Balance from "@/components/Balance";
+import IncomeExpense from "@/components/IncomeExpense";
+import Transactions from "@/components/Transactions";
+import AddTransaction from "@/components/AddTransaction";
+import { currentUser } from "@clerk/nextjs/server";
 
 export default async function HomePage() {
   const user = await currentUser();
@@ -18,9 +18,21 @@ export default async function HomePage() {
       <Balance />
       <IncomeExpense />
 
-      <AddTransaction />
+      <Transactions />
 
-      <TransactionList />
+      <div className="max-[600px]:hidden">
+        <AppDrawer
+          title="Add Transaction"
+          Trigger={
+            <div className="absolute bottom-5 right-5">
+              <div className="cirlce-btn">
+                <Plus />
+              </div>
+            </div>
+          }>
+          <AddTransaction />
+        </AppDrawer>
+      </div>
     </main>
   );
 }

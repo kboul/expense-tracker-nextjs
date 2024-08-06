@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-
-import { Roboto } from "next/font/google";
-import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Roboto } from "next/font/google";
 
-import { Header } from "@/components";
+import "./globals.css";
+import Header from "@/components/Header";
+import { Toaster } from "@/components/ui/toaster";
 
 const roboto = Roboto({ weight: "400", subsets: ["latin"] });
 
@@ -28,7 +26,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <main className="mx-auto my-2 flex w-[350px] flex-col items-center justify-center">
             {children}
           </main>
-          <ToastContainer position="top-right" />
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

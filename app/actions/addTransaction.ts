@@ -30,7 +30,6 @@ export async function addTransaction(
   // Get logged in user
   const { userId } = auth();
   if (!userId) return { error: "User not found" };
-  console.log(userId);
 
   try {
     const transactionData: TranscactionData = await db.transaction.create({
