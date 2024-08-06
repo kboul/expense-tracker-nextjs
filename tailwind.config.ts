@@ -16,7 +16,6 @@ const config = {
       screens: { "2xl": "1400px" }
     },
     extend: {
-      // pre-shadcn
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

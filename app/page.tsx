@@ -20,17 +20,19 @@ export default async function HomePage() {
 
       <Transactions />
 
-      <AppDrawer
-        title="Add Transaction"
-        Trigger={
-          <div className="absolute bottom-5 right-5">
-            <div className="flex h-11 w-11 shrink-0 grow-0 items-center justify-center rounded-full bg-primary text-white">
-              <Plus />
+      <div className="max-[600px]:hidden">
+        <AppDrawer
+          title="Add Transaction"
+          Trigger={
+            <div className="absolute bottom-5 right-5">
+              <div className="cirlce-btn">
+                <Plus />
+              </div>
             </div>
-          </div>
-        }>
-        <AddTransaction />
-      </AppDrawer>
+          }>
+          <AddTransaction />
+        </AppDrawer>
+      </div>
     </main>
   );
 }

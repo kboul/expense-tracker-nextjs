@@ -105,6 +105,10 @@ body {
   .money {
     @apply m-0 text-[20px] tracking-[1px];
   }
+
+  .cirlce-btn {
+    @apply flex h-11 w-11 shrink-0 grow-0 items-center justify-center rounded-full bg-primary text-white;
+  }
 }
 
 @layer base {
