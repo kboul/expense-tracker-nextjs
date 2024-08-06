@@ -1,6 +1,9 @@
 "use client";
 
 import React from "react";
+import { Transaction } from "@prisma/client";
+import { Trash } from "lucide-react";
+
 import {
   Table,
   TableBody,
@@ -9,25 +12,25 @@ import {
   TableHeader,
   TableRow
 } from "@/components/ui/table";
-import { Transaction } from "@prisma/client";
-import { Trash } from "lucide-react";
-
 import { addCommas, getFormattedDate } from "@/utils";
 import { deleteTransaction } from "@/app/actions";
 import { useToast } from "./ui/use-toast";
 
+type TransactionsTableProps = { transactions: Transaction[] | undefined };
+
 export default function TransactionsTable({
   transactions
-}: {
-  transactions: Transaction[] | undefined;
-}) {
+}: TransactionsTableProps) {
   if (!transactions) return null;
 
   const { toast } = useToast();
 
   const onDeleteTransaction = async (transactionId: string) => {
+    const selectedTransaction = transactions.find(
+      ({ id }) => id === transactionId
+    );
     const confirmed = window.confirm(
-      "Are you sure you want to delete this transaction?"
+      `Are you sure you want to delete the ${selectedTransaction?.text} transaction?`
     );
     if (!confirmed) return;
 
