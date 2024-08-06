@@ -13,9 +13,7 @@ const config = {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px"
-      }
+      screens: { "2xl": "1400px" }
     },
     extend: {
       // pre-shadcn
@@ -24,7 +22,6 @@ const config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))"
       },
-      display: ["group-hover"], // pre-shadcn
 
       colors: {
         minusColor: "#c0392b", // pre-shadcn
