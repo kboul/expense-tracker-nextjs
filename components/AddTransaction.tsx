@@ -2,18 +2,24 @@
 
 import { useRef } from "react";
 import { addTransaction } from "@/app/actions";
-import { toast } from "react-toastify";
+import { useToast } from "@/components/ui/use-toast";
 
 import { Button } from "./ui/button";
 
 export default function AddTransaction() {
+  const { toast } = useToast();
+
   const formRef = useRef<HTMLFormElement>(null);
 
   const clientAction = async (formData: FormData) => {
     const { data, error } = await addTransaction(formData);
-    if (error) return toast.error(error);
+    if (error) return toast({ variant: "destructive", description: error });
 
-    toast.success(`Transaction added: ${data?.text} ${data?.amount} euro.`);
+    toast({
+      variant: "success",
+      description: `Transaction added: ${data?.text} ${data?.amount} euro.`
+    });
+
     formRef.current?.reset();
   };
 

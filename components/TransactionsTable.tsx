@@ -14,7 +14,7 @@ import { Trash } from "lucide-react";
 
 import { addCommas, getFormattedDate } from "@/utils";
 import { deleteTransaction } from "@/app/actions";
-import { toast } from "react-toastify";
+import { useToast } from "./ui/use-toast";
 
 export default function TransactionsTable({
   transactions
@@ -22,6 +22,8 @@ export default function TransactionsTable({
   transactions: Transaction[] | undefined;
 }) {
   if (!transactions) return null;
+
+  const { toast } = useToast();
 
   const onDeleteTransaction = async (transactionId: string) => {
     const confirmed = window.confirm(
@@ -31,9 +33,10 @@ export default function TransactionsTable({
 
     const { message, error } = await deleteTransaction(transactionId);
 
-    if (error) return toast.error(error);
-
-    toast.success(message);
+    toast({
+      variant: error ? "destructive" : "success",
+      description: error ?? message
+    });
   };
 
   return (
