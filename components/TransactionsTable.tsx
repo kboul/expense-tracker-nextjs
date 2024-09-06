@@ -59,7 +59,10 @@ export default function TransactionsTable({
             <TableRow key={transaction.id}>
               <TableCell>{transaction.text}</TableCell>
               <TableCell
-                className={`${transaction.amount < 0 ? "text-minusColor" : "text-plusColor"}`}>{`${sign}${addCommas(Math.abs(transaction.amount))}`}</TableCell>
+                className={`${transaction.amount < 0 ? "text-minusColor" : "text-plusColor"} text-nowrap`}
+                style={{
+                  width: 90
+                }}>{`${sign}${addCommas(Math.abs(transaction.amount))} €`}</TableCell>
               <TableCell>{getFormattedDate(transaction.createdAt)}</TableCell>
               <TableCell>
                 <Trash
