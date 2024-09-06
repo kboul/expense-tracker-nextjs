@@ -1,11 +1,29 @@
-import { getUserBalance } from "@/app/actions";
-import { formatTransaction } from "@/utils";
+"use client";
 
-export default async function Balance() {
-  const { balance } = await getUserBalance();
+import { lastMonth } from "@/constants";
+import {
+  formatTransaction,
+  getBalance,
+  getFilteredTransactions
+} from "@/utils";
+import { Transaction } from "@prisma/client";
+import { useSearchParam } from "@/hooks";
+
+export default function Balance({
+  transactions
+}: {
+  transactions: Transaction[] | undefined;
+}) {
+  const selectedFilter = useSearchParam("filter") ?? lastMonth;
+
+  const filteredTransactions = getFilteredTransactions(
+    transactions ?? [],
+    selectedFilter
+  );
+  const balance = getBalance(filteredTransactions ?? []);
+
   return (
     <div className="text-center">
-      <h4>Your Balance</h4>
       <h1>€ {formatTransaction(balance) ?? 0}</h1>
     </div>
   );

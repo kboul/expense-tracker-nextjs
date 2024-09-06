@@ -8,7 +8,6 @@ import { Button } from "./ui/button";
 
 export default async function Header() {
   const user = await currentUser();
-  console.log(user);
   return (
     <nav className="bg-black p-2 text-white">
       <div className="my-0 flex items-center justify-between py-0">

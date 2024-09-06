@@ -7,16 +7,18 @@ import IncomeExpense from "@/components/IncomeExpense";
 import Transactions from "@/components/Transactions";
 import AddTransaction from "@/components/AddTransaction";
 import { currentUser } from "@clerk/nextjs/server";
+import { getTransactions } from "./actions";
 
 export default async function HomePage() {
   const user = await currentUser();
+  const { transactions } = await getTransactions();
 
   if (!user) return <Guest />;
   return (
     <main>
       <h2 className="mb-2 text-center">Welcome, {user.firstName}</h2>
-      <Balance />
-      <IncomeExpense />
+      <Balance transactions={transactions} />
+      <IncomeExpense transactions={transactions} />
 
       <Transactions />
 

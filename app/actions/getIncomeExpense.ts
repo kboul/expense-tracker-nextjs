@@ -2,6 +2,7 @@
 
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
+import { getIncomeExpense as getIncomeExpenseUtil } from "@/utils";
 
 export async function getIncomeExpense(): Promise<{
   income?: number;
@@ -17,17 +18,9 @@ export async function getIncomeExpense(): Promise<{
       where: { userId }
     });
 
-    const amounts = transactions.map((transaction) => transaction.amount);
+    const { income, expense } = getIncomeExpenseUtil(transactions);
 
-    const income = amounts
-      .filter((amount) => amount > 0)
-      .reduce((sum, amount) => sum + amount, 0);
-
-    const expense = amounts
-      .filter((amount) => amount < 0)
-      .reduce((sum, amount) => sum + amount, 0);
-
-    return { income, expense: Math.abs(expense) };
+    return { income, expense };
   } catch (error) {
     return { error: "Database error" };
   }

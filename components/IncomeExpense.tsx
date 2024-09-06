@@ -1,8 +1,28 @@
-import { getIncomeExpense } from "@/app/actions";
-import { formatTransaction } from "@/utils";
+"use client";
 
-export default async function IncomeExpense() {
-  const { expense, income } = await getIncomeExpense();
+import { Transaction } from "@/app/types";
+import { useSearchParam } from "@/hooks";
+import { lastMonth } from "@/constants";
+import {
+  formatTransaction,
+  getFilteredTransactions,
+  getIncomeExpense
+} from "@/utils";
+
+export default function IncomeExpense({
+  transactions
+}: {
+  transactions: Transaction[] | undefined;
+}) {
+  const selectedFilter = useSearchParam("filter") ?? lastMonth;
+
+  const filteredTransactions = getFilteredTransactions(
+    transactions ?? [],
+    selectedFilter
+  );
+
+  const { income, expense } = getIncomeExpense(filteredTransactions ?? []);
+
   return (
     <div className="my-3 flex justify-around bg-white p-4 shadow-sm">
       <div className="text-center">
