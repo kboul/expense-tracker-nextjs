@@ -1,8 +1,8 @@
 "use client";
 
 import React from "react";
-import { Transaction } from "@prisma/client";
 import { Trash } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 import {
   Table,
@@ -13,20 +13,12 @@ import {
   TableRow
 } from "@/components/ui/table";
 import AppSelect from "./ui/AppSelect";
-import { addCommas, filterArrayByMonth, getFormattedDate } from "@/utils";
+import { addCommas, getFilteredTransactions, getFormattedDate } from "@/utils";
 import { deleteTransaction } from "@/app/actions";
 import { useToast } from "./ui/use-toast";
-
-const items = [
-  {
-    value: "lastMonth",
-    label: "Last Month"
-  },
-  {
-    value: "allMonths",
-    label: "All Months"
-  }
-];
+import { Transaction } from "@/app/types";
+import { useSearchParam } from "@/hooks";
+import { items, lastMonth } from "@/constants";
 
 type TransactionsTableProps = { transactions: Transaction[] | undefined };
 
@@ -36,7 +28,9 @@ export default function TransactionsTable({
   if (!transactions) return null;
 
   const { toast } = useToast();
-  const [selectedValue, setSelectedValue] = React.useState(items[0].value);
+  const router = useRouter();
+
+  const selectedFilter = useSearchParam("filter") ?? lastMonth;
 
   const onDeleteTransaction = async (transactionId: string) => {
     const selectedTransaction = transactions.find(
@@ -55,27 +49,19 @@ export default function TransactionsTable({
     });
   };
 
-  // Get the current date and time
-  const now: Date = new Date();
-
-  // Get the start of the current month (e.g., 2024-09-01 00:00:00)
-  const startOfMonth: Date = new Date(now.getFullYear(), now.getMonth(), 1);
-
-  const firstItem = items[0].value;
-
-  const filteredTransactions =
-    selectedValue === firstItem
-      ? filterArrayByMonth(transactions, startOfMonth)
-      : transactions;
+  const filteredTransactions = getFilteredTransactions(
+    transactions ?? [],
+    selectedFilter
+  );
 
   return (
     <div className="flex flex-col">
       <div className="flex justify-end">
         <AppSelect
           btnStyle={{ height: "30px" }}
-          defaultValue={firstItem}
+          defaultValue={lastMonth}
           items={items}
-          onValueChange={setSelectedValue}
+          onValueChange={(value) => router.push(`?filter=${value}`)}
           placeholder="Filters"
         />
       </div>

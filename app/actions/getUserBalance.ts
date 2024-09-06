@@ -2,6 +2,7 @@
 
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
+import { getBalance } from "@/utils";
 
 export async function getUserBalance(): Promise<{
   balance?: number;
@@ -16,9 +17,7 @@ export async function getUserBalance(): Promise<{
       where: { userId }
     });
 
-    const balance = transactions.reduce((sum, transaction) => {
-      return sum + transaction.amount;
-    }, 0);
+    const balance = getBalance(transactions);
 
     return { balance };
   } catch (error) {
