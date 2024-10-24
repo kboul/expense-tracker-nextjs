@@ -38,7 +38,6 @@ export default function AddTransaction() {
           id="amount"
           name="amount"
           placeholder="Enter amount..."
-          step="0.01"
         />
       </div>
       <Button className="mt-4 w-full">Add</Button>
