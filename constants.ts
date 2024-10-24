@@ -1,14 +1,14 @@
-const items = [
+const months = [
   {
-    value: "lastMonth",
-    label: "Last Month"
+    value: "current",
+    label: "Current Month"
   },
   {
-    value: "allMonths",
+    value: "all",
     label: "All Months"
   }
 ];
 
-const lastMonth = items[0].value;
+const currentMonth = months[0].value;
 
-export { items, lastMonth };
+export { months, currentMonth };

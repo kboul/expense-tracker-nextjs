@@ -1,6 +1,6 @@
 "use client";
 
-import { lastMonth } from "@/constants";
+import { currentMonth } from "@/constants";
 import {
   formatTransaction,
   getBalance,
@@ -14,11 +14,11 @@ export default function Balance({
 }: {
   transactions: Transaction[] | undefined;
 }) {
-  const selectedFilter = useSearchParam("filter") ?? lastMonth;
+  const selectedMonth = useSearchParam("month") ?? currentMonth;
 
   const filteredTransactions = getFilteredTransactions(
     transactions ?? [],
-    selectedFilter
+    selectedMonth
   );
   const balance = getBalance(filteredTransactions ?? []);
 

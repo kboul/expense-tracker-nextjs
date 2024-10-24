@@ -18,7 +18,7 @@ import { deleteTransaction } from "@/app/actions";
 import { useToast } from "./ui/use-toast";
 import { Transaction } from "@/app/types";
 import { useSearchParam } from "@/hooks";
-import { items, lastMonth } from "@/constants";
+import { months, currentMonth } from "@/constants";
 
 type TransactionsTableProps = { transactions: Transaction[] | undefined };
 
@@ -30,7 +30,7 @@ export default function TransactionsTable({
   const { toast } = useToast();
   const router = useRouter();
 
-  const selectedFilter = useSearchParam("filter") ?? lastMonth;
+  const selectedMonth = useSearchParam("month") ?? currentMonth;
 
   const onDeleteTransaction = async (transactionId: string) => {
     const selectedTransaction = transactions.find(
@@ -51,7 +51,7 @@ export default function TransactionsTable({
 
   const filteredTransactions = getFilteredTransactions(
     transactions ?? [],
-    selectedFilter
+    selectedMonth
   );
 
   return (
@@ -59,9 +59,9 @@ export default function TransactionsTable({
       <div className="flex justify-end">
         <AppSelect
           btnStyle={{ height: "30px" }}
-          defaultValue={lastMonth}
-          items={items}
-          onValueChange={(value) => router.push(`?filter=${value}`)}
+          defaultValue={currentMonth}
+          items={months}
+          onValueChange={(value) => router.push(`?month=${value}`)}
           placeholder="Filters"
         />
       </div>

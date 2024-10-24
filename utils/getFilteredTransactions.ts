@@ -1,12 +1,12 @@
-import { lastMonth } from "@/constants";
+import { currentMonth } from "@/constants";
 import { filterArrayByMonth } from "./filterTransactionByMonth";
 import { Transaction } from "@/app/types";
 
 export function getFilteredTransactions(
   transactions: Transaction[],
-  selectedFilter: string
+  selectedMonth: string
 ) {
-  return selectedFilter === lastMonth
+  return selectedMonth === currentMonth
     ? filterArrayByMonth(transactions ?? [])
     : transactions;
 }
