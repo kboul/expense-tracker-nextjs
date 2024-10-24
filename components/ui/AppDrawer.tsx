@@ -31,7 +31,7 @@ export default function AppDrawer({
           <DrawerClose asChild>
             <div className="flex justify-center">
               <Button className="w-[330px]" variant="outline">
-                Cancel
+                Close
               </Button>
             </div>
           </DrawerClose>
