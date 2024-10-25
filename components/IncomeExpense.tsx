@@ -2,7 +2,7 @@
 
 import { Transaction } from "@/app/types";
 import { useSearchParam } from "@/hooks";
-import { lastMonth } from "@/constants";
+import { currentMonth } from "@/constants";
 import {
   formatTransaction,
   getFilteredTransactions,
@@ -14,11 +14,11 @@ export default function IncomeExpense({
 }: {
   transactions: Transaction[] | undefined;
 }) {
-  const selectedFilter = useSearchParam("filter") ?? lastMonth;
+  const selectedMonth = useSearchParam("month") ?? currentMonth;
 
   const filteredTransactions = getFilteredTransactions(
     transactions ?? [],
-    selectedFilter
+    selectedMonth
   );
 
   const { income, expense } = getIncomeExpense(filteredTransactions ?? []);
