@@ -79,7 +79,7 @@ body {
     @apply text-2xl;
   }
   h3 {
-    @apply mx-0 mb-3 mt-4 border-[0] border-b border-solid border-[#bbb] pb-[10px];
+    @apply mx-0 my-2 border-[0] border-b border-solid border-[#bbb];
   }
 
   h4 {

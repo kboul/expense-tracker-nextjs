@@ -23,7 +23,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <html lang="en">
         <body className={roboto.className}>
           <Header />
-          <main className="mx-auto my-2 flex w-[350px] flex-col items-center justify-center">
+          <main className="mx-auto flex w-[350px] flex-col items-center justify-center">
             {children}
           </main>
           <Toaster />

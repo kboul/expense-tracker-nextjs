@@ -3,15 +3,14 @@ import React from "react";
 import { getTransactions } from "@/app/actions";
 import TransactionsTable from "./TransactionsTable";
 
-export default async function TransactionList() {
+export default async function Transactions() {
   const { transactions, error } = await getTransactions();
 
-  if (error)
-    return <p className="mt-2 bg-red-500 p-[3px] text-white">{error}</p>;
+  if (error) return <p className="bg-red-500 p-[3px] text-white">{error}</p>;
 
   if (transactions?.length === 0) {
     return (
-      <p className="mt-4 rounded-md bg-gray-200 p-2">
+      <p className="rounded-md bg-gray-200 p-2">
         You don't have any transactions yet.
       </p>
     );
