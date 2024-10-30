@@ -15,8 +15,8 @@ export default async function HomePage() {
 
   if (!user) return <Guest />;
   return (
-    <main>
-      <h2 className="mb-2 text-center">Welcome, {user.firstName}</h2>
+    <main className="my-2 flex flex-col gap-1">
+      <h2 className="text-center">Welcome, {user.firstName}</h2>
       <Balance transactions={transactions} />
       <IncomeExpense transactions={transactions} />
 

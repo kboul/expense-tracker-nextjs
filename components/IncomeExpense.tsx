@@ -24,7 +24,7 @@ export default function IncomeExpense({
   const { income, expense } = getIncomeExpense(filteredTransactions ?? []);
 
   return (
-    <div className="my-3 flex justify-around bg-white p-4 shadow-sm">
+    <div className="flex justify-around bg-white p-4 shadow-sm">
       <div className="text-center">
         <h4>Income</h4>
         <p className="money text-plusColor">€ {formatTransaction(income)}</p>
