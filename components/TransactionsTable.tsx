@@ -56,7 +56,7 @@ export default function TransactionsTable({
 
   return (
     <div className="flex flex-col">
-      <div className="flex justify-end">
+      <div className="mb-2 flex justify-end">
         <AppSelect
           btnStyle={{ height: "30px" }}
           defaultValue={currentMonth}
