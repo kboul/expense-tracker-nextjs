@@ -5,7 +5,7 @@ import Guest from "@/components/Guest";
 import Balance from "@/components/Balance";
 import IncomeExpense from "@/components/IncomeExpense";
 import Transactions from "@/components/Transactions";
-import AddTransaction from "@/components/AddTransaction";
+import TransactionForm from "@/components/TransactionForm";
 import { currentUser } from "@clerk/nextjs/server";
 import { getTransactions } from "./actions";
 
@@ -32,7 +32,7 @@ export default async function HomePage() {
               </div>
             </div>
           }>
-          <AddTransaction />
+          <TransactionForm />
         </AppDrawer>
       </div>
     </main>

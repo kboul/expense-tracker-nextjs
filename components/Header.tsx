@@ -3,7 +3,7 @@ import { Plus } from "lucide-react";
 import { currentUser } from "@clerk/nextjs/server";
 
 import AppDrawer from "./ui/AppDrawer";
-import AddTransaction from "./AddTransaction";
+import TransactionForm from "./TransactionForm";
 import { Button } from "./ui/button";
 
 export default async function Header() {
@@ -16,7 +16,7 @@ export default async function Header() {
           {user && (
             <div className="flex min-[600px]:hidden">
               <AppDrawer title="Add Transaction" Trigger={<Plus />}>
-                <AddTransaction />
+                <TransactionForm />
               </AppDrawer>
             </div>
           )}
