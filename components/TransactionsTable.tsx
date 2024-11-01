@@ -14,9 +14,9 @@ import {
 } from "@/components/ui/table";
 import AppSelect from "./ui/AppSelect";
 import NoTransactionsAlert from "./NoTransactionsAlert";
+import AppDrawer from "./ui/AppDrawer";
+import TransactionForm from "./TransactionForm";
 import { addCommas, getFilteredTransactions, getFormattedDate } from "@/utils";
-import { deleteTransaction } from "@/app/actions";
-import { useToast } from "./ui/use-toast";
 import { Transaction } from "@/app/types";
 import { useSearchParam } from "@/hooks";
 import { months, currentMonth } from "@/constants";
@@ -28,27 +28,9 @@ export default function TransactionsTable({
 }: TransactionsTableProps) {
   if (!transactions) return null;
 
-  const { toast } = useToast();
   const router = useRouter();
 
   const selectedMonth = useSearchParam("month") ?? currentMonth;
-
-  const onDeleteTransaction = async (transactionId: string) => {
-    const selectedTransaction = transactions.find(
-      ({ id }) => id === transactionId
-    );
-    const confirmed = window.confirm(
-      `Are you sure you want to delete the ${selectedTransaction?.text} transaction?`
-    );
-    if (!confirmed) return;
-
-    const { message, error } = await deleteTransaction(transactionId);
-
-    toast({
-      variant: error ? "destructive" : "success",
-      description: error ?? message
-    });
-  };
 
   const filteredTransactions = getFilteredTransactions(
     transactions ?? [],
@@ -81,10 +63,11 @@ export default function TransactionsTable({
                   }}>{`${sign}${addCommas(Math.abs(transaction.amount))} €`}</TableCell>
                 <TableCell>{getFormattedDate(transaction.createdAt)}</TableCell>
                 <TableCell>
-                  <Trash
-                    className="h-4 w-4 cursor-pointer"
-                    onClick={() => onDeleteTransaction(transaction.id)}
-                  />
+                  <AppDrawer
+                    title="Delete Transaction"
+                    Trigger={<Trash className="h-4 w-4 cursor-pointer" />}>
+                    <TransactionForm transaction={transaction} />
+                  </AppDrawer>
                 </TableCell>
               </TableRow>
             );
