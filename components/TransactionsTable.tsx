@@ -13,6 +13,7 @@ import {
   TableRow
 } from "@/components/ui/table";
 import AppSelect from "./ui/AppSelect";
+import NoTransactionsAlert from "./NoTransactionsAlert";
 import { addCommas, getFilteredTransactions, getFormattedDate } from "@/utils";
 import { deleteTransaction } from "@/app/actions";
 import { useToast } from "./ui/use-toast";
@@ -54,18 +55,10 @@ export default function TransactionsTable({
     selectedMonth
   );
 
-  return (
-    <div className="flex flex-col">
-      <div className="mb-1 flex justify-end">
-        <AppSelect
-          btnStyle={{ height: "30px" }}
-          defaultValue={currentMonth}
-          items={months}
-          onValueChange={(value) => router.push(`?month=${value}`)}
-          placeholder="Filters"
-        />
-      </div>
-
+  let content;
+  if (filteredTransactions.length === 0) content = <NoTransactionsAlert />;
+  else
+    content = (
       <Table>
         <TableHeader>
           <TableRow>
@@ -98,6 +91,21 @@ export default function TransactionsTable({
           })}
         </TableBody>
       </Table>
+    );
+
+  return (
+    <div className="flex flex-col">
+      <div className="mb-2 flex justify-end">
+        <AppSelect
+          btnStyle={{ height: "30px" }}
+          defaultValue={currentMonth}
+          items={months}
+          onValueChange={(value) => router.push(`?month=${value}`)}
+          placeholder="Filters"
+        />
+      </div>
+
+      {content}
     </div>
   );
 }
