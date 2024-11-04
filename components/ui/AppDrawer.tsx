@@ -10,15 +10,17 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "./button";
 
+type AppDrawerProps = {
+  children: React.ReactNode;
+  title: string;
+  Trigger: React.ReactNode;
+};
+
 export default function AppDrawer({
   children,
   title,
   Trigger
-}: {
-  children: React.ReactNode;
-  title: string;
-  Trigger: React.ReactNode;
-}) {
+}: AppDrawerProps) {
   return (
     <Drawer>
       <DrawerTrigger>{Trigger}</DrawerTrigger>

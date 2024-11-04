@@ -13,7 +13,7 @@ import {
   TableRow
 } from "@/components/ui/table";
 import AppSelect from "./ui/AppSelect";
-import NoTransactionsAlert from "./NoTransactionsAlert";
+import AppAlert from "./ui/AppAlert";
 import AppDrawer from "./ui/AppDrawer";
 import TransactionForm from "./TransactionForm";
 import { addCommas, getFilteredTransactions, getFormattedDate } from "@/utils";
@@ -38,7 +38,13 @@ export default function TransactionsTable({
   );
 
   let content;
-  if (filteredTransactions.length === 0) content = <NoTransactionsAlert />;
+  if (filteredTransactions.length === 0)
+    content = (
+      <AppAlert
+        message="You don't have any transactions yet."
+        severity="info"
+      />
+    );
   else
     content = (
       <Table>

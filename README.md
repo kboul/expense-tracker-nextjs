@@ -2,13 +2,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-1. Create a .env and include your DATABASE_URL from neon
+1. Create a .env and include your **DATABASE_URL** from **neon**
 
 ```
 DATABASE_URL=...
 ```
 
-2. Install, init, generate & migrate prisma
+2. Install, init, generate & migrate **prisma**
 
 a. Install
 
@@ -34,23 +34,17 @@ d. Create prisma migrations
 npx prisma migrate dev
 ```
 
-3. Inluce in .env your clerk credentials
+3. Inluce in .env your **clerk** credentials
 
 ```
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=...
 CLERK_SECRET_KEY=...
 ```
 
-4.  Run the development server:
+4.  Run the development server using only **pnpm**:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
+```
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
