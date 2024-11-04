@@ -6,19 +6,21 @@ import {
   SelectValue
 } from "./select";
 
+type AppSelectProps = {
+  btnStyle?: any;
+  defaultValue: string;
+  onValueChange: (value: string) => void;
+  placeholder: string;
+  items: { value: string; label: string }[];
+};
+
 export default function AppSelect({
   btnStyle,
   defaultValue,
   onValueChange,
   placeholder,
   items
-}: {
-  btnStyle?: any;
-  defaultValue: string;
-  onValueChange: (value: string) => void;
-  placeholder: string;
-  items: { value: string; label: string }[];
-}) {
+}: AppSelectProps) {
   return (
     <Select defaultValue={defaultValue} onValueChange={onValueChange}>
       <SelectTrigger className="w-auto" style={btnStyle}>

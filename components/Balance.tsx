@@ -6,8 +6,8 @@ import {
   getBalance,
   getFilteredTransactions
 } from "@/utils";
-import { Transaction } from "@prisma/client";
 import { useSearchParam } from "@/hooks";
+import { Transaction } from "@/app/types";
 
 export default function Balance({
   transactions
