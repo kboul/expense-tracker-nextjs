@@ -1,9 +1,11 @@
 import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { Plus } from "lucide-react";
+import { Plus, List } from "lucide-react";
 import { currentUser } from "@clerk/nextjs/server";
 
+import AppDialog from "./ui/AppDialog";
 import AppDrawer from "./ui/AppDrawer";
 import TransactionForm from "./TransactionForm";
+import MonthlyTransactionsList from "./MonthlyTransactionsList";
 import { Button } from "./ui/button";
 
 export default async function Header() {
@@ -14,11 +16,20 @@ export default async function Header() {
         <h2>Expense Tracker</h2>
         <div className="flex gap-4">
           {user && (
-            <div className="flex min-[600px]:hidden">
-              <AppDrawer title="Add Transaction" Trigger={<Plus />}>
-                <TransactionForm />
-              </AppDrawer>
-            </div>
+            <>
+              <div className="flex min-[600px]:hidden">
+                <AppDrawer title="Add Transaction" Trigger={<Plus />}>
+                  <TransactionForm />
+                </AppDrawer>
+              </div>
+              <div className="flex items-center">
+                <AppDialog
+                  title="Total transaction amount per month"
+                  Trigger={<List className="cursor-pointer" />}>
+                  <MonthlyTransactionsList />
+                </AppDialog>
+              </div>
+            </>
           )}
 
           <SignedOut>
