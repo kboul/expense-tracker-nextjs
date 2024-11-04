@@ -2,7 +2,6 @@ import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { Plus, List } from "lucide-react";
 import { currentUser } from "@clerk/nextjs/server";
 
-import AppDialog from "./ui/AppDialog";
 import AppDrawer from "./ui/AppDrawer";
 import TransactionForm from "./TransactionForm";
 import MonthlyTransactionsList from "./MonthlyTransactionsList";
@@ -23,11 +22,11 @@ export default async function Header() {
                 </AppDrawer>
               </div>
               <div className="flex items-center">
-                <AppDialog
+                <AppDrawer
                   title="Total transaction amount per month"
                   Trigger={<List className="cursor-pointer" />}>
                   <MonthlyTransactionsList />
-                </AppDialog>
+                </AppDrawer>
               </div>
             </>
           )}
