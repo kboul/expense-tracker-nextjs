@@ -4,7 +4,7 @@ import { currentUser } from "@clerk/nextjs/server";
 
 import AppDrawer from "./ui/AppDrawer";
 import TransactionForm from "./TransactionForm";
-import MonthlyTransactionsList from "./MonthlyTransactionsList";
+import MonthlyTransactionsTable from "./MonthlyTransactionsTable";
 import { Button } from "./ui/button";
 
 export default async function Header() {
@@ -25,7 +25,7 @@ export default async function Header() {
                 <AppDrawer
                   title="Total transaction amount per month"
                   Trigger={<List className="cursor-pointer" />}>
-                  <MonthlyTransactionsList />
+                  <MonthlyTransactionsTable />
                 </AppDrawer>
               </div>
             </>

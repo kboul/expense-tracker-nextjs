@@ -19,7 +19,7 @@ export default async function Transactions() {
 
   return (
     <>
-      <h3>History</h3>
+      <h3>Transactions History</h3>
       <TransactionsTable transactions={transactions} />
     </>
   );
